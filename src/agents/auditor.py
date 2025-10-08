@@ -1,6 +1,3 @@
-"""
-Agente auditor usando CrewAI para análisis de fraude.
-"""
 from crewai import Agent, Task, Crew
 from langchain.llms import OpenAI
 import logging
@@ -13,7 +10,6 @@ class FraudAuditorAgent:
         self.model = model
         self.llm = OpenAI(temperature=0.1)
         
-        # Definir el agente auditor
         self.auditor_agent = Agent(
             role='Fraud Detection Auditor',
             goal='Analizar transacciones y detectar posibles fraudes',
@@ -25,7 +21,6 @@ class FraudAuditorAgent:
     
     def analyze_transaction(self, transaction):
         """Analizar una transacción individual."""
-        # Crear tarea de análisis
         analysis_task = Task(
             description=f"""
             Analiza la siguiente transacción para detectar posibles indicadores de fraude:
@@ -47,7 +42,6 @@ class FraudAuditorAgent:
             expected_output="Análisis detallado del riesgo de fraude con recomendaciones"
         )
         
-        # Crear crew y ejecutar
         crew = Crew(
             agents=[self.auditor_agent],
             tasks=[analysis_task],
@@ -74,3 +68,4 @@ class FraudAuditorAgent:
                     'error': str(e)
                 })
         return results
+
