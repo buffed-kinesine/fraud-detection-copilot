@@ -1,6 +1,3 @@
-"""
-Agente de enriquecimiento usando CrewAI para agregar contexto a casos de fraude.
-"""
 from crewai import Agent, Task, Crew
 from langchain.llms import OpenAI
 import logging
@@ -12,7 +9,6 @@ class FraudEnrichmentAgent:
     def __init__(self):
         self.llm = OpenAI(temperature=0.1)
         
-        # Definir el agente de enriquecimiento
         self.enrichment_agent = Agent(
             role='Fraud Data Enrichment Specialist',
             goal='Enriquecer casos de fraude con información contextual adicional',
@@ -51,3 +47,4 @@ class FraudEnrichmentAgent:
         
         result = crew.kickoff()
         return result
+
