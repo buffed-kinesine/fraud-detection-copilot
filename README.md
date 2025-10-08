@@ -2,7 +2,7 @@
 
 # Sistema de Detección de Fraude
 
-Sistema simple de detección de fraude usando árboles de decisión y agentes AI con CrewAI.
+Sistema avanzado de detección de fraude usando árboles de decisión y agentes AI con CrewAI.
 
 ## Características
 
